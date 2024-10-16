@@ -1,0 +1,79 @@
+MySQL -u root
+Create database storedb;
+use storedb;
+
+create table stores (store_code int not null primary key, store_name varchar(250), store_url varchar(250), store_country varchar(250), created_at timestamp default current_timestamp);
+
+create table customers (customer_id int not null primary key, email varchar(250), customer_name varchar(250), phone varchar(20), ip_address varchar(250), country varchar(250), postal_code int, created_at timestamp default current_timestamp);
+
+create table cards (credit_card_id int not null primary key, credit_card_num varchar(100), credit_card_date date, credit_card_cvv int(3), customer_id int references customers(customer_id), created_at timestamp default current_timestamp);
+
+create table orders (order_id int not null primary key, order_date date, tax float, shipping_cost float, total float, store_code int references stores(store_code), customer_id int references customers(customer_id), created_at timestamp default current_timestamp);
+
+create table products (product_id int not null primary key, product_name varchar(250), price float, sold int, quantity int, visible boolean, weight_g float, length_mm float, width_mm float, height_mm float, notes varchar(2000), image_url varchar(250), store_code int references stores(store_code), order_id int references orders(order_id), created_at timestamp default current_timestamp);
+
+create table transactions (transaction_id int not null primary key, billing_country varchar(250), billing_city varchar(250), transaction_type varchar(250), payment_status boolean, amount float, error_code varchar(1000), order_id int references orders(order_id), credit_card_id int references cards(credit_card_id_id), created_at timestamp default current_timestamp);
+
+
+describe stores;
+
+describe customers;
+
+describe cards;
+
+describe products;
+
+describe orders;
+
+describe transactions;
+
+
+load data infile 'stores.csv' into table stores fields terminated by ',' lines terminated by '\n';
+select * from stores;
+
+
+load data infile 'customers.csv' into table customers fields terminated by ',' lines terminated by '\n';
+select * from customers;
+
+
+load data infile 'cards.csv' into table cards fields terminated by ',' lines terminated by '\n';
+select * from cards;
+
+
+load data infile 'orders.csv' into table orders fields terminated by ',' lines terminated by '\n';
+select * from orders;
+
+
+load data infile 'products.csv' into table products fields terminated by ',' lines terminated by '\n';
+select * from products;
+
+
+update orders set total = (select sum(products.price)+sum(products.price)*orders.tax+orders.shipping_cost from products where products.order_id = orders.order_id);
+
+
+load data infile 'transactions.csv' into table transactions fields terminated by ',' lines terminated by '\n';
+select * from transactions;
+update transactions, orders set amount = orders.total where orders.order_id = transactions.order_id;
+
+
+create index store_index on stores (store_code);
+create index store_index on products (store_code);
+create index store_index on orders (store_code);
+
+create index product_index on products (product_id);
+
+create index order_index on orders (order_id);
+create index order_index on transactions (order_id);
+create index order_index on products (order_id);
+
+create index customer_index on customers (customer_id);
+create index customer_index on cards (customer_id);
+create index customer_index on orders (customer_id);
+
+create index credit_card_index on cards (credit_card_id);
+create index credit_card_index on transactions (credit_card_id);
+
+create index transaction_index on transactions (transaction_id);
+
+
+
