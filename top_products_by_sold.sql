@@ -1,3 +1,0 @@
-5	 'PRO X SUPERLIGHT 2 DEX'	6560	220	1005	1	60	125.8	67.7	43.9	 'Max Sensitivity: 44 000 DPI'	 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTedz2P1bHw7z3Iin7JZ1Tf-idGeLQn3cacNg&s'	3	0	0000-00-00 00:00:00
-1	 'HATOR Quasar 2 PRO wireless Black/Orange (HTM560BO)'	2999	120	228	1	59	118	62	39	 'Max Sensitivity: 26 000 DPI'	 'https://hator.gg/wp-content/uploads/products/mice/quasar-2-pro-wireless/quasar-2-pro-wireless-1.jpg'	1	1	0000-00-00 00:00:00
-6	 'G502 X PLUS GAMING MOUSE'	6560	120	840	1	106	130	41	131	 'Max Sensitivity: 25 600 DPI'	 'https://content.rozetka.com.ua/goods/images/big/284706945.jpg'	3	3	0000-00-00 00:00:00
