@@ -1,0 +1,1 @@
+select stores.store_name from stores inner join orders on orders.store_code = stores.store_code inner join transactions on orders.order_id = transactions.order_id where transactions.payment_status = 0

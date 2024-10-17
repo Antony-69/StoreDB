@@ -1,0 +1,1 @@
+select products.product_name from products join transactions on transactions.order_id = products.order_id where transactions.payment_status = 0 union all select products.product_name from products where products.order_id = 0
