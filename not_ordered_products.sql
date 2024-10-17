@@ -1,6 +1,0 @@
- 'G502 X PLUS GAMING MOUSE'
- 'HATOR Pulsar 2 Pro Wireless Lilac (HTM-534)'
- 'PRO X SUPERLIGHT 2 DEX'
- 'G309 LIGHTSPEED'
- 'Razer Basilisk V3 Pro 35K - Black'
- 'Razer Cobra Pro + Mouse Dock Pro Bundle'
